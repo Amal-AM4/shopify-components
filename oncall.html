@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        @keyframes vibrate {
+        0%, 100% {
+            transform: translateX(0);
+        }
+        25% {
+            transform: translateX(-3px);
+        }
+        50% {
+            transform: translateX(3px);
+        }
+        75% {
+            transform: translateX(-3px);
+        }
+    }
+
+    .shoponcall .rightcall img {
+        scale: 2;
+        animation: vibrate 0.5s linear infinite; /* Add the vibrate animation */
+    }
+
+        .oncalllink:link,
+        .oncalllink:active,
+        .oncalllink:visited {
+            text-decoration: none;
+            color: #111;
+        }
+
+        .shoponcall {
+            display: flex;
+            border: 3px solid #ee5d38;
+            padding: 8px 14px;
+            border-radius: 20px;
+        }
+        .shoponcall .rightcall {
+            width: 20%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .shoponcall .rightcall img {
+            scale: 2;
+        }
+
+        .shoponcall .leftcall {
+            width: 80%;
+        }
+
+        .shoponcall .leftcall h2 {
+            margin-bottom: 1px;
+            margin-top: 2px;
+            font-size: 40px;
+        }
+
+        .shoponcall .leftcall p {
+            margin-top: 8px;
+            color: #5c5c5c;
+        }
+
+        .bold-or::before {
+            content: '';
+            display: inline-block;
+            width: 200px;
+            height: 2px;
+            margin-right: 40px;
+            background-color: rgb(187, 187, 187);
+        }
+
+        .bold-or::after {
+            content: '';
+            display: inline-block;
+            width: 200px;
+            height: 2px;
+            margin-left: 40px;
+            background-color: rgb(187, 187, 187);
+        }
+
+        .discount-manual {
+            display: flex; /* Use Flexbox for alignment */
+            align-items: center; /* Align items vertically in the center */
+            gap: 8px; /* Optional: Add spacing between the image and text */
+            font-size: 16px; /* Adjust font size */
+            color: #6b6b6b; /* Text color */
+        }
+
+        .discount-manual img {
+            width: 24px; /* Adjust the size of the icon */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+
+        .add-btn {
+            display: flex;
+            justify-content: space-between; 
+            align-items: center; 
+            width: 100%; 
+            padding: 10px 20px;
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+            color: #131313;
+            background-color: transparent;
+            border: 2px solid #808080;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .add-btn img {
+            height: 20px; 
+            width: 20px; 
+        }
+
+        .add-btn:hover {
+            background-color: #ee5d38; 
+            border: 2px solid #ee5d38;
+            color: white;
+        }
+
+        .add-btn img:hover {
+            filter: invert(1);
+        }
+
+
+    .feature-icons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    }
+    .icon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    }
+    .icon-container img {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 1rem;
+    }
+    .icon-container h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #333;
+    }
+
+
+    .row-1 {
+        display: flex;
+        gap: 14px;
+    }
+
+    .row-1 .feature-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .row-2 {
+        display: flex;
+        gap: 14px;
+    }
+
+    .row-2 .feature-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .color-selection p strong {
+        color: #111;
+    }
+
+    .color-selection p {
+        color: #5c5c5c;
+    }
+
+
+    .containerAmal {
+        display: none; 
+        background-color: #eeeeeea6;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 8px;
+        font-family: sans-serif;
+    }
+    .containerAmal .row {
+        display: flex;
+        padding: 10px 14px;
+        border-bottom: 1px solid #1111112a;
+    }
+    .containerAmal .row:last-child {
+        border-bottom: none;
+    }
+
+    .containerAmal .row .col-1{
+        width: 30%;
+        color: #1111118e;
+    }
+    .containerAmal .row .col-2{
+        width: 70%;
+    }
+
+
+    .containerAdthi {
+        display: none; 
+        background-color: #eeeeeea6;
+        color: #1111119c;
+        padding: 10px 16px;
+        margin: 10px 0;
+        border-radius: 8px;
+        font-family: sans-serif;
+    }
+    
+    
+
+.features-container {
+    width: 100%;
+}
+
+.features-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.features-list {
+    list-style-type: none; 
+    padding: 0;
+    margin: 0;
+}
+
+.features-list li {
+    margin-bottom: 10px;
+    padding-left: 10px;
+    font-size: 16px;
+    color: #444;
+    line-height: 1.5;
+}
+
+.features-list li::before {
+    content: '✔'; 
+    color: #28a745;
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    transform: translateY(0px);
+}
+
+
+
+.gif-animationamal {
+    background-color: #ee5d38;
+    text-align: center;
+    width: 100%;
+    padding: 10px 18px;
+}
+.gif-animationamal h2 {
+    color: #111;
+    margin: 0 auto;
+    width: 60%;
+    font-weight: bold;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.gif-animationamal button {
+    padding: 8px 12px;
+    border: none;
+    background-color: #fff;
+    color: #111;
+    border-radius: 40px;
+    cursor: pointer;
+}
+.gif-animationamal .charger-gif {
+    display: block;
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-bottom: 50px;
+    border-radius: 20px;
+    border: 8px solid #fff;
+}
+
+
+@media (min-width: 320px) and (max-width: 425px) {
+    .gif-animationamal h2 {
+        width: 100%;
+        
+    }
+    .gif-animationamal .charger-gif {
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  
+}
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+    .gif-animationamal {
+        width: 50%;
+    }
+    .gif-animationamal h2 {
+        width: 100%;
+    }
+    .gif-animationamal .charger-gif {
+        width: 60%;
+    }
+  
+}
+@media (min-width: 1440px) and (max-width: 1920px) {
+    .gif-animationamal {
+        width: 50%;
+    }
+    .gif-animationamal h2 {
+        width: 100%;
+    }
+    .gif-animationamal .charger-gif {
+        width: 60%;
+    }
+}
+
+    </style>
+
+
+</head>
+<body>
+
+<a href="https://wa.me/+918078033505?text=Hi,%20I%20want%20to%20order%20Retractable%20Fast%20Premium%20Car%20charger%20-%20Rs.%202499" target="_blank" class="oncalllink">
+    <div class="shoponcall">
+        <div class="rightcall">
+            <img src="feather/phone-call.svg">
+        </div>
+        <div class="leftcall">
+            <h2>Shop on call</h2>
+            <p>Talk to an expert for any support you need.</p>
+        </div>
+    </div>
+</a>
+
+<b class="bold-or">OR</b>
+
+<br>
+
+
+<div class="discount-manual">
+    <img src="feather/tag.svg" alt="Discount Icon">
+    Avail extra 5% off on prepaid orders up to ₹100.
+</div>
+
+<button class="add-btn" id="addDivButton">Product Details <img src="feather/arrow-down-right.svg"></button>
+<div class="containerAmal" id="containerAmal">
+<div class="features-container">
+    <h2 class="features-title">Key Features</h2>
+    <ul class="features-list">
+        <li><strong>Fast Charging:</strong> Supports 66W fast charging for Type-C and 17W for Lightning.</li>
+        <li><strong>4 Functionality:</strong> Lightning and Type-C cables and 2 USB ports for multiple device compatibility.</li>
+        <li><strong>Sleek Design:</strong> Compact, retractable build that elevates your car’s interior.</li>
+        <li><strong>Powerful Output:</strong> Total 120W output for ultra-fast and reliable charging.</li>
+    </ul>
+</div>
+</div>
+
+<br>
+
+<button class="add-btn" id="addReturn">Return and Refund <img src="feather/arrow-down-right.svg"></button>
+<div class="containerAdthi" id="containerAdthi">
+    The Frido Ultimate Car Neck Rest Pillow is backed by a hassle-free 7-day return policy. 
+    If you're unsatisfied, you can return it within 7 days of purchase for a full refund or exchange.
+</div>
+
+
+<div class="feature-icons">
+    <div class="icon-container">
+      <img src="truck.svg" alt="Truck icon">
+      <small>Free Delivery</small>
+    </div>
+    <div class="icon-container">
+      <img src="shield.svg" alt="Shield icon">
+      <small>COD Available</small>
+    </div>
+    <div class="icon-container">
+      <img src="box.svg" alt="Box icon">
+      <small>7 Day Easy Returns</small>
+    </div>
+</div>
+
+
+  <div class="product-features">
+    <div class="row-1">
+        <div class="feature-item">
+            <img src="alignment.svg" alt="Spinal Alignment Icon">
+            <p>col 1</p>
+          </div>
+          <div class="feature-item">
+            <img src="tiredness.svg" alt="Tiredness Icon">
+            <p>col 2</p>
+          </div>
+    </div>
+    <div class="row-2">
+        <div class="feature-item">
+            <img src="universal-fit.svg" alt="Universal Fit Icon">
+            <p>col 3</p>
+          </div>
+          <div class="feature-item">
+            <img src="adjustable-straps.svg" alt="Adjustable Straps Icon">
+            <p>col 4</p>
+          </div>
+    </div>
+  </div>
+
+  <div class="color-selection">
+    <p><strong>Select Preferred Color:</strong> Premium Silver</p>
+  </div>
+
+
+
+<div class="gif-animationamal">
+    <h2>Discover Ultimate Convenience for Your Daily Car Rides</h2>
+    <button>Give Your Phone a Break!</button>
+
+    <img src="pr.gif" class="charger-gif">
+</div>
+
+
+<script>
+    const addDivButtons = document.getElementById('addReturn');
+    const containers = document.getElementById('containerAdthi');
+
+    function toggleContainer() {
+        if (containers.style.display === 'none' || containers.style.display === '') {
+            containers.style.display = 'block'; 
+        } else {
+            containers.style.display = 'none'; 
+        }
+    }
+
+    addDivButtons.addEventListener('click', toggleContainer);
+</script>
+
+
+<script>
+    const addDivButton = document.getElementById('addDivButton');
+    const container = document.getElementById('containerAmal');
+
+    function toggleContainer() {
+        if (container.style.display === 'none' || container.style.display === '') {
+            container.style.display = 'block'; 
+        } else {
+            container.style.display = 'none'; 
+        }
+    }
+
+    addDivButton.addEventListener('click', toggleContainer);
+</script>
+
+</body>
+</html>
