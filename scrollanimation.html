@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smooth Scrolling Sale Message</title>
+  <style>
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.sale-container {
+  width: 100%;
+  overflow: hidden;
+  background-color: #ffc107;
+  color: #333;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 10px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  white-space: nowrap;
+}
+
+.sale-message {
+  display: flex;
+  animation: smoothScroll 15s linear infinite;
+}
+
+.sale-message span {
+  padding: 0 50px; /* Ensures consistent spacing between repeated messages */
+}
+
+@keyframes smoothScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+
+  </style>
+</head>
+<body>
+
+  <div class="sale-container">
+    <div class="sale-message">
+      <span>
+        • Retractable and Fast Premium Car Charger - Now Rs. 2,499 (Regular Price: Rs. 3,299) • 
+        Extra ₹200 OFF on prepaid orders! Select Premium Silver & Shop Now! • 
+      </span>
+      <span>
+        • Retractable and Fast Premium Car Charger - Now Rs. 2,499 (Regular Price: Rs. 3,299) • 
+        Extra ₹200 OFF on prepaid orders! Select Premium Silver & Shop Now! • 
+      </span>
+    </div>
+  </div>
+  
+</body>
+</html>
