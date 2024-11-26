@@ -1,0 +1,143 @@
+<style>
+    .review-slider-amxx {
+        position: relative;
+margin: 0 auto;
+        width: 90%;
+        text-align: center;
+font-size: 24px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+    }
+
+    .slider-title-amxx {
+        font-size: 2.5rem;
+        margin-bottom: 4px;
+        color: #333;
+    }
+
+    .review-amxx {
+        display: none;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    .review-amxx.active {
+        display: block;
+        opacity: 1;
+    }
+
+    .stars-amxx {
+        color: #f39c12;
+        margin-bottom: 5px;
+    }
+
+    .review-text-amxx {
+        font-size: 1.6rem;
+        color: #555;
+        margin: 8px 0;
+    }
+
+    .reviewer-amxx {
+        font-size: 1.4rem;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .verified-amxx {
+        font-size: 0.8rem;
+margin:0;
+padding:0;
+font-weight: bold;
+        color: #28a745;
+    }
+
+    .nav-btn-amxx {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: transparent;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #333;
+    }
+
+    #prev-btn-amxx {
+        left: 10px;
+    }
+
+    #next-btn-amxx {
+        right: 10px;
+    }
+
+    .nav-btn-amxx:hover {
+        color: #000;
+    }
+</style>
+
+<div class="review-slider-amxx">
+    <h2 class="slider-title-amxx">Customer Reviews</h2>
+    <div class="review-container-amxx" id="review-container-amxx">
+        <!-- Reviews will be dynamically added here -->
+    </div>
+    <button id="prev-btn-amxx" class="nav-btn-amxx">❮</button>
+    <button id="next-btn-amxx" class="nav-btn-amxx">❯</button>
+</div>
+
+<script>
+    const reviews = [
+        {
+            stars: 3,
+            description: "This is the test review.",
+            name: "Amal A M",
+            verified: true,
+        },
+        {
+            stars: 5,
+            description: "This product exceeded my expectations! Highly recommend.",
+            name: "John Doe",
+            verified: true,
+        },
+        {
+            stars: 4,
+            description: "Good quality, but delivery was slightly delayed.",
+            name: "Jane Smith",
+            verified: true,
+        },
+        {
+            stars: 5,
+            description: "Excellent! The best purchase I’ve made this year.",
+            name: "Aman Verma",
+            verified: true,
+        },
+    ];
+
+    let currentReviewIndex = 0;
+
+    function displayReview(index) {
+        const reviewContainer = document.getElementById("review-container-amxx");
+        reviewContainer.innerHTML = `
+            <div class="review-amxx active">
+                <div class="stars-amxx">${"★".repeat(reviews[index].stars)}${"☆".repeat(5 - reviews[index].stars)}</div>
+                <p class="review-text-amxx">${reviews[index].description}</p>
+                <p class="reviewer-amxx">${reviews[index].name}</p>
+                <p class="verified-amxx">${reviews[index].verified ? "Verified Buyer" : ""}</p>
+            </div>
+        `;
+    }
+
+    document.getElementById("prev-btn-amxx").addEventListener("click", () => {
+        currentReviewIndex = (currentReviewIndex - 1 + reviews.length) % reviews.length;
+        displayReview(currentReviewIndex);
+    });
+
+    document.getElementById("next-btn-amxx").addEventListener("click", () => {
+        currentReviewIndex = (currentReviewIndex + 1) % reviews.length;
+        displayReview(currentReviewIndex);
+    });
+
+    // Display the first review on load
+    displayReview(currentReviewIndex);
+
+</script>
