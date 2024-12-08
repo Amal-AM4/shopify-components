@@ -1,35 +1,3 @@
-<div class="amal-cover">
-    <div class="tracking-header">
-        02 - 09 DEC <small>Estimated arrival</small>
-    </div>
-    <div class="tracking-timeline">
-        <div class="timeline-step">
-            <div class="timeline-icon">
-                <img src="https://cdn.shopify.com/s/files/1/0665/4551/6726/files/calnder.png?v=1727616460" alt="Order placed">
-            </div>
-            <div class="timeline-date">2 Dec</div>
-            <div class="timeline-label">Order placed</div>
-        </div>
-        <div class="timeline-line"></div>
-        <div class="timeline-step">
-            <div class="timeline-icon">
-                <img src="https://cdn.shopify.com/s/files/1/0665/4551/6726/files/van.png?v=1727616460" alt="Order dispatches">
-            </div>
-            <div class="timeline-date">2 Dec - 3 Dec</div>
-            <div class="timeline-label">Order dispatches</div>
-        </div>
-        <div class="timeline-line"></div>
-        <div class="timeline-step">
-            <div class="timeline-icon">
-                <img src="https://cdn.shopify.com/s/files/1/0665/4551/6726/files/box-2.png?v=1727616635" alt="Delivered">
-            </div>
-            <div class="timeline-date">5 Dec - 9 Dec</div>
-            <div class="timeline-label">Delivered!</div>
-        </div>
-    </div>
-
-</div>
-
 <style>
 
     .amal-cover {
@@ -114,24 +82,80 @@
         color: #666;
     }
 
-@media (min-width: 768px) and (max-width: 1024px) {
-.amal-cover {
-width: 90%;
-margin: 0 auto;
-}
-}
+    @media (min-width: 768px) and (max-width: 1024px) {
+    .amal-cover {
+    width: 90%;
+    margin: 0 auto;
+    }
+    }
 
-@media (min-width: 1024px) and (max-width: 1440px) {
-.amal-cover {
-width: 80%;
-margin: 0 auto;
+    @media (min-width: 1024px) and (max-width: 1440px) {
+    .amal-cover {
+    width: 80%;
+    margin: 0 auto;
+    }
+    }
+    @media (min-width: 1440px) and (max-width: 1920px) {
+    .amal-cover {
+    width: 60%;
+    margin: 0 auto;
+    }
 }
-}
-@media (min-width: 1440px) and (max-width: 1920px) {
-.amal-cover {
-width: 60%;
-margin: 0 auto;
-}
-}
-    
 </style>
+
+<div class="amal-cover">
+    <div class="tracking-header">
+        <span id="dayzzz">dd</span> - <span id="dayzzz">dd</span> <span id="monthzzz">mm</span> <small>Estimated arrival</small>
+    </div>
+    <div class="tracking-timeline">
+        <div class="timeline-step">
+            <div class="timeline-icon">
+                <img src="https://cdn.shopify.com/s/files/1/0665/4551/6726/files/calnder.png?v=1727616460" alt="Order placed">
+            </div>
+            <div class="timeline-date"><span id="dayzzz">dd</span> <span id="monthzzz">mm</span></div>
+            <div class="timeline-label">Order placed</div>
+        </div>
+        <div class="timeline-line"></div>
+        <div class="timeline-step">
+            <div class="timeline-icon">
+                <img src="https://cdn.shopify.com/s/files/1/0665/4551/6726/files/van.png?v=1727616460" alt="Order dispatches">
+            </div>
+            <div class="timeline-date"><span id="dayzzz">dd</span> <span id="monthzzz">mm</span> - <span id="dayzzz">dd</span> <span id="monthzzz">mm</span></div>
+            <div class="timeline-label">Order dispatches</div>
+        </div>
+        <div class="timeline-line"></div>
+        <div class="timeline-step">
+            <div class="timeline-icon">
+                <img src="https://cdn.shopify.com/s/files/1/0665/4551/6726/files/box-2.png?v=1727616635" alt="Delivered">
+            </div>
+            <div class="timeline-date"><span id="dayzzz">dd</span> <span id="monthzzz">mm</span> - <span id="dayzzz">dd</span> <span id="monthzzz">mm</span></div>
+            <div class="timeline-label">Delivered!</div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', (e) => {
+        const day = document.querySelectorAll('#dayzzz');
+        const month = document.querySelectorAll('#monthzzz');
+
+        let mm = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
+        const date = new Date();
+        day[0].textContent = parseInt(date.getDate()) + 3;
+        day[1].textContent = parseInt(date.getDate()) + 7;
+        day[2].textContent = parseInt(date.getDate());
+        day[3].textContent = parseInt(date.getDate());
+        day[4].textContent = parseInt(date.getDate()) + 1;
+        day[5].textContent = parseInt(date.getDate()) + 3;
+        day[6].textContent = parseInt(date.getDate()) + 7;
+
+        month.forEach((ele) => {
+            ele.textContent = mm[date.getMonth()];
+            
+        });
+        
+    });
+</script>
+
