@@ -103,16 +103,18 @@
 }
 </style>
 
+
 <div class="amal-cover">
     <div class="tracking-header">
-        <span id="dayzzz">dd</span> - <span id="dayzzz">dd</span> <span id="monthzzz">mm</span> <small>Estimated arrival</small>
+        <span class="start-day"></span> - <span class="end-day"></span> <span class="month"></span>
+        <small>Estimated arrival</small>
     </div>
     <div class="tracking-timeline">
         <div class="timeline-step">
             <div class="timeline-icon">
                 <img src="https://cdn.shopify.com/s/files/1/0665/4551/6726/files/calnder.png?v=1727616460" alt="Order placed">
             </div>
-            <div class="timeline-date"><span id="dayzzz">dd</span> <span id="monthzzz">mm</span></div>
+            <div class="timeline-date"><span class="order-day"></span> <span class="order-month"></span></div>
             <div class="timeline-label">Order placed</div>
         </div>
         <div class="timeline-line"></div>
@@ -120,7 +122,7 @@
             <div class="timeline-icon">
                 <img src="https://cdn.shopify.com/s/files/1/0665/4551/6726/files/van.png?v=1727616460" alt="Order dispatches">
             </div>
-            <div class="timeline-date"><span id="dayzzz">dd</span> <span id="monthzzz">mm</span> - <span id="dayzzz">dd</span> <span id="monthzzz">mm</span></div>
+            <div class="timeline-date"><span class="dispatch-start"></span> <span class="dispatch-month"></span> - <span class="dispatch-end"></span> <span class="dispatch-month-end"></span></div>
             <div class="timeline-label">Order dispatches</div>
         </div>
         <div class="timeline-line"></div>
@@ -128,34 +130,61 @@
             <div class="timeline-icon">
                 <img src="https://cdn.shopify.com/s/files/1/0665/4551/6726/files/box-2.png?v=1727616635" alt="Delivered">
             </div>
-            <div class="timeline-date"><span id="dayzzz">dd</span> <span id="monthzzz">mm</span> - <span id="dayzzz">dd</span> <span id="monthzzz">mm</span></div>
+            <div class="timeline-date"><span class="delivery-start"></span> <span class="delivery-month"></span> - <span class="delivery-end"></span> <span class="delivery-month-end"></span></div>
             <div class="timeline-label">Delivered!</div>
         </div>
     </div>
-
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', (e) => {
-        const day = document.querySelectorAll('#dayzzz');
-        const month = document.querySelectorAll('#monthzzz');
+    document.addEventListener('DOMContentLoaded', () => {
+        const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        const today = new Date();
 
-        let mm = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        function formatDate(date) {
+            return {
+                day: date.getDate(),
+                month: monthNames[date.getMonth()]
+            };
+        }
 
-        const date = new Date();
-        day[0].textContent = parseInt(date.getDate()) + 3;
-        day[1].textContent = parseInt(date.getDate()) + 7;
-        day[2].textContent = parseInt(date.getDate());
-        day[3].textContent = parseInt(date.getDate());
-        day[4].textContent = parseInt(date.getDate()) + 1;
-        day[5].textContent = parseInt(date.getDate()) + 3;
-        day[6].textContent = parseInt(date.getDate()) + 7;
+        const orderDate = today;
+        const dispatchStartDate = new Date(orderDate);
+        dispatchStartDate.setDate(orderDate.getDate() + 1);
 
-        month.forEach((ele) => {
-            ele.textContent = mm[date.getMonth()];
-            
-        });
-        
+        const dispatchEndDate = new Date(orderDate);
+        dispatchEndDate.setDate(orderDate.getDate() + 2);
+
+        const deliveryStartDate = new Date(orderDate);
+        deliveryStartDate.setDate(orderDate.getDate() + 3);
+
+        const deliveryEndDate = new Date(orderDate);
+        deliveryEndDate.setDate(orderDate.getDate() + 7);
+
+        // Fill in header
+        document.querySelector('.start-day').textContent = deliveryStartDate.getDate();
+        document.querySelector('.end-day').textContent = deliveryEndDate.getDate();
+        document.querySelector('.month').textContent = monthNames[deliveryEndDate.getMonth()];
+
+        // Fill in order placed
+        const orderDateData = formatDate(orderDate);
+        document.querySelector('.order-day').textContent = orderDateData.day;
+        document.querySelector('.order-month').textContent = orderDateData.month;
+
+        // Fill in order dispatches
+        const dispatchStartData = formatDate(dispatchStartDate);
+        const dispatchEndData = formatDate(dispatchEndDate);
+        document.querySelector('.dispatch-start').textContent = dispatchStartData.day;
+        document.querySelector('.dispatch-month').textContent = dispatchStartData.month;
+        document.querySelector('.dispatch-end').textContent = dispatchEndData.day;
+        document.querySelector('.dispatch-month-end').textContent = dispatchEndData.month;
+
+        // Fill in delivered
+        const deliveryStartData = formatDate(deliveryStartDate);
+        const deliveryEndData = formatDate(deliveryEndDate);
+        document.querySelector('.delivery-start').textContent = deliveryStartData.day;
+        document.querySelector('.delivery-month').textContent = deliveryStartData.month;
+        document.querySelector('.delivery-end').textContent = deliveryEndData.day;
+        document.querySelector('.delivery-month-end').textContent = deliveryEndData.month;
     });
 </script>
-
